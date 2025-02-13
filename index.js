@@ -2,6 +2,8 @@
 const randomNumber1 = Math.floor(6*Math.random()+1);
 const randomNumber2 = Math.floor(6*Math.random()+1);
 
+const h1Element = document.querySelector("h1");
+
 function getImagePath(theNumber) {
   let imageName="";
 
@@ -32,6 +34,19 @@ function getImagePath(theNumber) {
   return imageName;
 }
 
+function setH1Text() {
+  if (randomNumber1===randomNumber2){
+    h1Element.textContent="Empate";
+    console.log('empate');
+  } else if (randomNumber1>randomNumber2) {
+    h1Element.textContent="🏆Player 1 Wins";
+    console.log('Player 1');
+  } else {
+    h1Element.textContent="Player 2 Wins🏆";
+    console.log('Player 2');
+  }
+}
+
 const pathImg1 = getImagePath(randomNumber1);
 const pathImg2 = getImagePath(randomNumber2);
 
@@ -41,5 +56,4 @@ const diceeImg2 = document.querySelector(".img2");
 diceeImg1.setAttribute("src", pathImg1);
 diceeImg2.setAttribute("src", pathImg2);
 
-console.log(getImagePath(randomNumber1));
-console.log(getImagePath(randomNumber2));
+setH1Text(); 

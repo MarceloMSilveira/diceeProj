@@ -2,7 +2,7 @@
 const randomNumber1 = Math.floor(6*Math.random()+1);
 const randomNumber2 = Math.floor(6*Math.random()+1);
 
-function getImageName(theNumber) {
+function getImagePath(theNumber) {
   let imageName="";
 
   switch (theNumber) {
@@ -32,7 +32,14 @@ function getImageName(theNumber) {
   return imageName;
 }
 
+const pathImg1 = getImagePath(randomNumber1);
+const pathImg2 = getImagePath(randomNumber2);
 
+const diceeImg1 = document.querySelector(".img1");
+const diceeImg2 = document.querySelector(".img2");
 
-console.log(getImageName(randomNumber1));
-console.log(getImageName(randomNumber2));
+diceeImg1.setAttribute("src", pathImg1);
+diceeImg2.setAttribute("src", pathImg2);
+
+console.log(getImagePath(randomNumber1));
+console.log(getImagePath(randomNumber2));
